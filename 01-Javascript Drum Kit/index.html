@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Javascript Drum Kit</title>
+		<link rel="stylesheet" href="./static/css/style.css" />
+	</head>
+	<body>
+		<ul class="drum-buttons">
+			<li data-key="65" class="drum-btn">
+				<a href="">A </a>
+				<p>Clap</p>
+			</li>
+			<li data-key="83" class="drum-btn">
+				<a href="">S </a>
+				<p>Hihat</p>
+			</li>
+			<li data-key="68" class="drum-btn">
+				<a href="">D </a>
+				<p>kick</p>
+			</li>
+			<li data-key="70" class="drum-btn">
+				<a href="">F </a>
+				<p>OPENHAT</p>
+			</li>
+			<li data-key="71" class="drum-btn">
+				<a href="">G </a>
+				<p>boom</p>
+			</li>
+			<li data-key="72" class="drum-btn">
+				<a href="">H </a>
+				<p>ride</p>
+			</li>
+			<li data-key="74" class="drum-btn">
+				<a href="">J </a>
+				<p>snare</p>
+			</li>
+			<li data-key="75" class="drum-btn">
+				<a href="">K </a>
+				<p>tom</p>
+			</li>
+			<li data-key="76" class="drum-btn">
+				<a href="">L </a>
+				<p>tink</p>
+			</li>
+		</ul>
+		<audio data-key="65" src="./static/sounds/clap.wav"></audio>
+		<audio data-key="83" src="./static/sounds/hihat.wav"></audio>
+		<audio data-key="68" src="./static/sounds/kick.wav"></audio>
+		<audio data-key="70" src="./static/sounds/openhat.wav"></audio>
+		<audio data-key="71" src="./static/sounds/boom.wav"></audio>
+		<audio data-key="72" src="./static/sounds/ride.wav"></audio>
+		<audio data-key="74" src="./static/sounds/snare.wav"></audio>
+		<audio data-key="75" src="./static/sounds/tom.wav"></audio>
+		<audio data-key="76" src="./static/sounds/tink.wav"></audio>
+		<script>
+			function removeTransition(e) {
+				if (e.propertyName !== "transform") return; //eğer transform değeri yoksa boş dön
+				e.target.classList.remove("playing"); // eğer varsa playing classını sil
+			}
+			function playSound(e) {
+				//basılan tuş alındı
+				const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //data keyi basılan tuşun keycodeuna eşit olan ses seçildi
+				const key = document.querySelector(`li[data-key="${e.keyCode}"]`); //data keyi keycode a eşit olan li seçildi
+				if (!audio) return; //audio bulunamazssa boş dön
+
+				key.classList.add("playing"); //ses oynarken playing clası verilir
+				audio.currentTime = 0;
+				audio.play();
+				/* audio.onended = function () { //ben onended ile animasyonun bitmesini sağladım
+					key.classList.remove("playing");
+				}; *
+                ses uzun olunca çok kalıyor
+                */
+			}
+			const drumButton = Array.from(document.querySelectorAll(".drum-btn"));
+			drumButton.forEach(
+				(key /*li elementlerini bul */) =>
+					key.addEventListener("transitionend", removeTransition) //trasitionları bitince transitionlarını kaldır
+			);
+			window.addEventListener("keydown", playSound);
+		</script>
+	</body>
+</html>
