@@ -1,0 +1,124 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  /* .clock::before {
+		position: absolute;
+		content: "";
+		height: 130px;
+		width: 10px;
+		background: black;
+		top: 50%;
+		left: calc(50% - 5px);
+		border-radius: 5px;
+		animation: spin 6s linear infinite;
+		transform-origin: top;
+	}
+	.clock::after {
+		position: absolute;
+		content: "";
+		height: 100px;
+		width: 10px;
+		background: black;
+		top: 50%;
+		left: calc(50% - 5px);
+		border-radius: 5px;
+		animation: spin 72s linear infinite;
+		transform-origin: top;
+	} */
+}
+
+.main .clock {
+  width: 400px;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 20px solid black;
+}
+
+.main .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.main .center .second {
+  position: absolute;
+  width: 45%;
+  height: 10px;
+  border-radius: 20px;
+  background: red;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  transform: rotate(50deg);
+  -webkit-transform: rotate(50deg);
+  -moz-transform: rotate(50deg);
+  -ms-transform: rotate(50deg);
+  -o-transform: rotate(50deg);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.main .center .minute {
+  position: absolute;
+  width: 35%;
+  height: 15px;
+  background: yellow;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.main .center .centerDot {
+  position: absolute;
+  background-color: black;
+  width: 20px;
+  height: 20px;
+}
+/*# sourceMappingURL=style.css.map */
